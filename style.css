@@ -1,0 +1,164 @@
+.landing-page {
+    background-color: #fff8f0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .landing-page .div {
+    background-color: #fff8f0;
+    width: 1440px;
+    height: 1666px;
+    position: relative;
+  }
+  
+  .landing-page .frame {
+    width: 206px;
+    height: 52px;
+    justify-content: space-around;
+    gap: 36px;
+    padding: 4px 1px;
+    position: absolute;
+    top: 105px;
+    left: 1129px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  
+  .landing-page .div-wrapper {
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    position: relative;
+    flex: 1;
+    flex-grow: 1;
+    margin-top: -4.50px;
+    margin-bottom: -4.50px;
+    margin-left: -1.00px;
+    margin-right: -1.00px;
+    border: 1px solid;
+    border-color: var(--black);
+    display: flex;
+    align-items: center;
+  }
+  
+  .landing-page .text-wrapper {
+    position: relative;
+    width: fit-content;
+    margin-top: -0.50px;
+    font-family: var(--link-menu-font-family);
+    font-weight: var(--link-menu-font-weight);
+    color: var(--black);
+    font-size: var(--link-menu-font-size);
+    letter-spacing: var(--link-menu-letter-spacing);
+    line-height: var(--link-menu-line-height);
+    white-space: nowrap;
+    font-style: var(--link-menu-font-style);
+  }
+  
+  .landing-page .frame-2 {
+    width: 321px;
+    height: 139px;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    position: absolute;
+    top: 62px;
+    left: 92px;
+    border: 1px solid;
+    border-color: var(--black);
+    display: flex;
+    align-items: center;
+  }
+  
+  .landing-page .text-wrapper-2 {
+    position: relative;
+    width: fit-content;
+    font-family: "Coolvetica-Regular", Helvetica;
+    font-weight: 400;
+    color: var(--black);
+    font-size: 48px;
+    letter-spacing: 1.00px;
+    line-height: normal;
+  }
+  
+  .landing-page .overlap-group {
+    position: absolute;
+    width: 1242px;
+    height: 534px;
+    top: 234px;
+    left: 93px;
+  }
+  
+  .landing-page .frame-3 {
+    width: 185px;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    position: absolute;
+    top: 33px;
+    left: 28px;
+    border: 1px solid;
+    border-color: var(--black);
+    display: flex;
+    align-items: center;
+  }
+  
+  .landing-page .hi-i-m-nafiul-islam {
+    position: absolute;
+    width: 1185px;
+    top: 111px;
+    left: 29px;
+    font-family: "Coolvetica-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 16px;
+    text-align: justify;
+    letter-spacing: 1.00px;
+    line-height: 23px;
+  }
+  
+  .landing-page .rectangle {
+    position: absolute;
+    width: 1242px;
+    height: 534px;
+    top: 0;
+    left: 0;
+    border: 1px solid;
+    border-color: #000000;
+  }
+  
+  .landing-page .group {
+    position: absolute;
+    width: 57px;
+    height: 57px;
+    top: 102px;
+    left: 534px;
+  }
+  
+  .landing-page .img {
+    left: 798px;
+    position: absolute;
+    width: 57px;
+    height: 57px;
+    top: 102px;
+  }
+  
+  .landing-page .group-2 {
+    left: 622px;
+    position: absolute;
+    width: 57px;
+    height: 57px;
+    top: 102px;
+  }
+  
+  .landing-page .group-3 {
+    left: 710px;
+    position: absolute;
+    width: 57px;
+    height: 57px;
+    top: 102px;
+  }
+  
