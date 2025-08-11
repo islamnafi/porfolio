@@ -7,7 +7,7 @@
   const PROMPT_PATH = "Portfolio:\\Nafi";
   const HINT_TEXT = "Type 'help' and press Enter";
   const BANNER_TEXT = [
-    "[Version 10.0.19045.14]",
+    "[Version 10.0.19045.6093]",
     "All rights reseseved by Nafiul Islam.",
     ""
   ].join("\n");
@@ -384,6 +384,27 @@ function renderPromptLine() {
   // ===========================
   function init() {
     terminal.setAttribute("tabindex", "0");
+    
+    // Prevent scrolling on mobile devices
+    if ('ontouchstart' in window) {
+      // Prevent default touch behaviors that might cause scrolling
+      document.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+      }, { passive: false });
+      
+      // Prevent zooming and scrolling
+      document.addEventListener('gesturestart', (e) => {
+        e.preventDefault();
+      });
+      
+      document.addEventListener('gesturechange', (e) => {
+        e.preventDefault();
+      });
+      
+      document.addEventListener('gestureend', (e) => {
+        e.preventDefault();
+      });
+    }
     
     // Create hidden input field for mobile compatibility
     const mobileInput = document.createElement("input");
