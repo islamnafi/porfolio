@@ -7,7 +7,7 @@
   const PROMPT_PATH = "Portfolio:\\Nafi";
   const HINT_TEXT = "Type 'help' and press Enter";
   const BANNER_TEXT = [
-    "[Version 10.0.19045.6093]",
+    "[Version 10.0.19045.14]",
     "All rights reseseved by Nafiul Islam.",
     ""
   ].join("\n");
