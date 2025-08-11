@@ -7,7 +7,7 @@
   const PROMPT_PATH = "Portfolio:\\Nafi";
   const HINT_TEXT = "Type 'help' and press Enter";
   const BANNER_TEXT = [
-    "[Version 10.0.19045.5353]",
+    "[Version 10.0.19045.0001]",
     "All rights reseseved by Nafiul Islam.",
     ""
   ].join("\n");
@@ -150,6 +150,9 @@
   }
 
   function scrollToBottom() {
+    // Disabled scrolling to prevent page jumping on mobile
+    return;
+    
     // Don't auto-scroll on mobile during typing to prevent page jumping
     if ('ontouchstart' in window && currentInput && currentInput.length > 0) {
       return;
