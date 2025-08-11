@@ -7,7 +7,7 @@
   const PROMPT_PATH = "Portfolio:\\Nafi";
   const HINT_TEXT = "Type 'help' and press Enter";
   const BANNER_TEXT = [
-    "[Version 10.0.19045.0001]",
+    "[Version 10.0.19045.6093]",
     "All rights reseseved by Nafiul Islam.",
     ""
   ].join("\n");
@@ -247,7 +247,7 @@ function renderPromptLine() {
   if (hint) line.appendChild(hint);
 
   terminal.appendChild(line);
-  scrollToBottom();
+  // scrollToBottom(); // Removed to prevent mobile scrolling issues
 
   currentPrompt = { line, label, typed, cursor, hint };
   return currentPrompt;
@@ -261,7 +261,7 @@ function renderPromptLine() {
       out.appendChild(linkify(t));
       terminal.appendChild(out);
     });
-    scrollToBottom();
+    // scrollToBottom(); // Removed to prevent mobile scrolling issues
   }
 
   function resetPrompt() {
@@ -279,10 +279,7 @@ function renderPromptLine() {
       currentPrompt.hint.style.display =
         text.length === 0 && !hasDismissedHint ? "" : "none";
     }
-    // Don't scroll on mobile while typing to prevent page jumping
-    if (!('ontouchstart' in window) || text.length === 0) {
-      scrollToBottom();
-    }
+    // scrollToBottom(); // Removed to prevent mobile scrolling issues
   }
 
   // ===========================
