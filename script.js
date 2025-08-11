@@ -7,7 +7,7 @@
   const PROMPT_PATH = "Portfolio:\\Nafi";
   const HINT_TEXT = "Type 'help' and press Enter";
   const BANNER_TEXT = [
-    "[Version 10.0.19045.15]",
+    "[Version 10.0.19045.6093]",
     "All rights reseseved by Nafiul Islam.",
     ""
   ].join("\n");
@@ -385,25 +385,24 @@ function renderPromptLine() {
   function init() {
     terminal.setAttribute("tabindex", "0");
     
-    // Prevent scrolling on mobile devices
+    // Prevent scrolling on mobile devices only during typing
     if ('ontouchstart' in window) {
-      // Prevent default touch behaviors that might cause scrolling
+      let isTyping = false;
+      
+      // Track when user is typing
+      const trackTyping = () => {
+        isTyping = true;
+        setTimeout(() => {
+          isTyping = false;
+        }, 1000); // Allow scrolling after 1 second of no typing
+      };
+      
+      // Prevent scrolling only while typing
       document.addEventListener('touchmove', (e) => {
-        e.preventDefault();
+        if (isTyping) {
+          e.preventDefault();
+        }
       }, { passive: false });
-      
-      // Prevent zooming and scrolling
-      document.addEventListener('gesturestart', (e) => {
-        e.preventDefault();
-      });
-      
-      document.addEventListener('gesturechange', (e) => {
-        e.preventDefault();
-      });
-      
-      document.addEventListener('gestureend', (e) => {
-        e.preventDefault();
-      });
     }
     
     // Create hidden input field for mobile compatibility
@@ -440,6 +439,10 @@ function renderPromptLine() {
         currentInput += e.target.value;
         setTyped(currentInput);
         e.target.value = "";
+        // Track typing to prevent scrolling
+        if ('ontouchstart' in window && typeof trackTyping === 'function') {
+          trackTyping();
+        }
       }
     });
     
@@ -447,11 +450,20 @@ function renderPromptLine() {
       if (e.key === "Enter") {
         e.preventDefault();
         processCommand(currentInput);
+        // Dismiss keyboard on mobile after command execution
+        if ('ontouchstart' in window) {
+          mobileInput.blur();
+          terminal.focus();
+        }
       } else if (e.key === "Backspace") {
         e.preventDefault();
         if (currentInput.length > 0) {
           currentInput = currentInput.slice(0, -1);
           setTyped(currentInput);
+          // Track typing to prevent scrolling
+          if ('ontouchstart' in window && typeof trackTyping === 'function') {
+            trackTyping();
+          }
         }
       }
     });
@@ -477,6 +489,14 @@ function renderPromptLine() {
     if ('ontouchstart' in window) {
       terminal.addEventListener("touchstart", () => {
         mobileInput.focus();
+      }, { passive: true });
+      
+      // Dismiss keyboard when tapping outside input area
+      document.addEventListener("touchstart", (e) => {
+        if (e.target !== mobileInput && e.target !== terminal) {
+          mobileInput.blur();
+          terminal.focus();
+        }
       }, { passive: true });
     }
   }
