@@ -150,9 +150,12 @@
   }
 
   function scrollToBottom() {
-    requestAnimationFrame(() => {
-      window.scrollTo(0, document.body.scrollHeight);
-    });
+    // Don't auto-scroll on mobile during typing to prevent page jumping
+    if ('ontouchstart' in window && currentInput && currentInput.length > 0) {
+      return;
+    }
+    
+    terminal.scrollTop = terminal.scrollHeight;
   }
 
   // Make URLs and emails clickable in output
@@ -269,7 +272,10 @@ function renderPromptLine() {
       currentPrompt.hint.style.display =
         text.length === 0 && !hasDismissedHint ? "" : "none";
     }
-    scrollToBottom();
+    // Only scroll to bottom on mobile when not actively typing
+    if (!('ontouchstart' in window) || text.length === 0) {
+      scrollToBottom();
+    }
   }
 
   // ===========================
@@ -312,6 +318,11 @@ function renderPromptLine() {
   }
 
   function handleKeyDown(evt) {
+    // Skip processing if the event came from the mobile input
+    if (evt.target.id === 'mobileInput') {
+      return;
+    }
+    
     if (evt.key === "Tab") {
       evt.preventDefault();
       return;
