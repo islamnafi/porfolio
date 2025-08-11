@@ -7,7 +7,7 @@
   const PROMPT_PATH = "Portfolio:\\Nafi";
   const HINT_TEXT = "Type 'help' and press Enter";
   const BANNER_TEXT = [
-    "[Version 10.0.19045.6969]",
+    "[Version 10.0.19045.5353]",
     "All rights reseseved by Nafiul Islam.",
     ""
   ].join("\n");
@@ -155,7 +155,11 @@
       return;
     }
     
-    terminal.scrollTop = terminal.scrollHeight;
+    // Use smooth scrolling for better UX
+    terminal.scrollTo({
+      top: terminal.scrollHeight,
+      behavior: 'smooth'
+    });
   }
 
   // Make URLs and emails clickable in output
@@ -272,7 +276,7 @@ function renderPromptLine() {
       currentPrompt.hint.style.display =
         text.length === 0 && !hasDismissedHint ? "" : "none";
     }
-    // Only scroll to bottom on mobile when not actively typing
+    // Don't scroll on mobile while typing to prevent page jumping
     if (!('ontouchstart' in window) || text.length === 0) {
       scrollToBottom();
     }
@@ -392,7 +396,7 @@ function renderPromptLine() {
     mobileInput.setAttribute("inputmode", "text");
     mobileInput.setAttribute("enterkeyhint", "send");
     mobileInput.setAttribute("autocorrect", "off");
-    mobileInput.setAttribute("autocapitalize", "sentences");
+    mobileInput.setAttribute("autocapitalize", "off");
     mobileInput.setAttribute("spellcheck", "false");
     document.body.appendChild(mobileInput);
     
@@ -422,6 +426,21 @@ function renderPromptLine() {
       if (e.key === "Enter") {
         e.preventDefault();
         processCommand(currentInput);
+      } else if (e.key === "Backspace") {
+        e.preventDefault();
+        if (currentInput.length > 0) {
+          currentInput = currentInput.slice(0, -1);
+          setTyped(currentInput);
+        }
+      }
+    });
+    
+    // Handle composition events for better mobile input
+    mobileInput.addEventListener("compositionend", (e) => {
+      if (e.target.value) {
+        currentInput += e.target.value;
+        setTyped(currentInput);
+        e.target.value = "";
       }
     });
 
