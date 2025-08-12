@@ -36,10 +36,9 @@
 
     // --- about ---
     about: [
-      "About Me",
-      "----------------------------------------",
-      "Hi, I'm Nafi. This is a placeholder about section.",
-      "Replace this text with your own background, interests, and profile summary."
+      " ",
+      "Hello, I’m Nafiul Islam. I’m currently pursuing my MSc in CSE at UIU, and before this, I completed my BSc in ME from MIST. I’ve been tinkering with computers for as long as I can remember. I love technology, watching random hardware videos on YouTube, coding just for the fun of it, reading books, and playing online FPS games with my friends.",
+      " "
     ].join("\n"),
 
          // --- education ---
@@ -114,7 +113,7 @@
        "I co-led the Rover Structure sub-team for international robotics competitions including the Anatolian Rover Challenge (ARC 2022) and the University Rover Challenge (URC 2022), organized by the Turkish Space Agency and NASA/The Mars Society. Managing a team of five, I oversaw structural design, CAD modeling, material selection, prototyping, and component integration to build mission-ready rovers. Our efforts earned us 3rd place at ARC 2022 and a Top 3 ranking in the SAR category at URC 2022.",
        " ",
        "MOTO MIST Automotive Club | Vice President",
-       "I led and coordinated a team of over 40 members to successfully plan and run seminars, technical competitions, and campus-wide events that energized the engineering community.",
+       "I led and coordinated a team of over 40 members to plan and execute seminars, technical competitions, and campus-wide events. Together, we worked hard to bring fresh energy and excitement to the engineering community, creating opportunities for learning, collaboration, and a bit of fun along the way.",
        " "
      ].join("\n"),
 
